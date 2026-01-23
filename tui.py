@@ -7,3 +7,21 @@ Any errors or invalid inputs should be handled appropriately.
 Please note that you do not need to read the data file or perform any other such processing in this module.
 """
 
+"""Task 3"""
+print("Please enter the letter which corresponds with your dessired menu choice:")
+print("[A] View Data")
+print("[B] Visualise Data")
+print("[X] Exit")
+
+choice=input()
+
+"""Task 4"""
+if choice=="A":
+    print(f"You have chosen option {choice}")
+elif choice=="B":
+    print(f"You have chosen option {choice}")
+elif choice=="X":
+    print(f"You have chosen option {choice}")
+else:
+    print("Invalid option")
+
