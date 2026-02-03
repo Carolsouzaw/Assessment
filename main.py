@@ -35,8 +35,23 @@ def main():
             sub_choice = input().upper()
             print(f"You have chosen sub-option {sub_choice}")
 
+
+            """Task 7"""
+            if sub_choice == "A":
+                park = tui.ask_park_name()
+                park_reviews = process.get_reviews_by_park(reviews, park)
+
+                if len(park_reviews) == 0:
+                    print("No reviews found for that park.")
+                else:
+                    for r in park_reviews:
+                        print(r)
+
         elif choice == "B":
             print("You have chosen option B")
+            tui.display_visualise_menu()
+            sub_choice = input().upper()
+            print(f"You have chosen sub-option {sub_choice}")
 
         elif choice == "X":
             print("Exiting program...")

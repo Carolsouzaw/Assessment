@@ -27,14 +27,26 @@ def display_main_menu():
     print("[X] Exit")
 
 """Task 6"""
+
 def display_view_data_menu():
     print("Please enter one of the following options:")
-    print("[A] All Reviews by Park")
+    print("[A] View Reviews by Park")
     print("[B] Number of Reviews by Park and Reviewer Location")
     print("[C] Average Score per year by Park")
     print("[D] Average Score per Park by Reviewer Location")
 
 
+def display_visualise_menu():
+    print("Please enter one of the following options:")
+    print("[A] Most reviewed Parks")
+    print("[B] Park Ranking by Nationality")
+    print("[C] Most Popular Month by Park")
+
+"""Task 7"""
+
+def ask_park_name():
+    print("Which park would you like to see reviews for?")
+    return input().strip()
 
 
 

@@ -18,3 +18,12 @@ def load_dataset(filename):
             data.append(row)
 
     return data
+
+"""Task 7"""
+
+def get_reviews_by_park(data, park_name):
+    results = []
+    for row in data:
+        if row.get("Branch", "").strip().lower() == park_name.strip().lower():
+            results.append(row)
+    return results
