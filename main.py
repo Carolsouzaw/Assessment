@@ -21,17 +21,17 @@ def main():
     print("Finished reading in the dataset.")
     print(f"Number of rows in the dataset: {len(reviews)}")
 
-    tui.display_main_menu()
+    """Task 5 """
+    choice = ""
 
-    choice = input().upper()
+    while choice != "X":
+        tui.display_main_menu()
+        choice = input().upper()
 
-
-    """Task 4"""
-
-    if choice in ["A", "B", "X"]:
-        print(f"You have chosen option {choice}")
-    else:
-        print("Invalid menu choice. Please try again.")
+        if choice in ["A", "B", "X"]:
+            print(f"You have chosen option {choice}")
+        else:
+            print("Invalid menu choice. Please try again.")
 
 
 if __name__ == "__main__":
