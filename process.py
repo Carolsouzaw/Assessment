@@ -27,3 +27,14 @@ def get_reviews_by_park(data, park_name):
         if row.get("Branch", "").strip().lower() == park_name.strip().lower():
             results.append(row)
     return results
+
+"""Task 8"""
+def count_reviews_by_park_and_location(data, park_name, location):
+    count = 0
+    for row in data:
+        if (
+            row.get("Branch", "").strip().lower() == park_name.strip().lower()
+            and row.get("Reviewer_Location", "").strip().lower() == location.strip().lower()
+        ):
+            count += 1
+    return count

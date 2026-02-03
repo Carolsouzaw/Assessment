@@ -48,6 +48,12 @@ def ask_park_name():
     print("Which park would you like to see reviews for?")
     return input().strip()
 
+"""Task 8"""
+
+def ask_location():
+    print("Please enter the reviewer location:")
+    return input().strip()
+
 
 
 

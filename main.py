@@ -47,6 +47,15 @@ def main():
                     for r in park_reviews:
                         print(r)
 
+                """Task 8"""
+            elif sub_choice == "B":
+                park = tui.ask_park_name()
+                location = tui.ask_location()
+
+                total = process.count_reviews_by_park_and_location(reviews, park, location)
+
+                print(f"{park} has received {total} reviews from {location}.")
+
         elif choice == "B":
             print("You have chosen option B")
             tui.display_visualise_menu()
