@@ -28,8 +28,19 @@ def main():
         tui.display_main_menu()
         choice = input().upper()
 
-        if choice in ["A", "B", "X"]:
-            print(f"You have chosen option {choice}")
+        """Task 6"""
+        if choice == "A":
+            print("You have chosen option A")
+            tui.display_view_data_menu()
+            sub_choice = input().upper()
+            print(f"You have chosen sub-option {sub_choice}")
+
+        elif choice == "B":
+            print("You have chosen option B")
+
+        elif choice == "X":
+            print("Exiting program...")
+
         else:
             print("Invalid menu choice. Please try again.")
 

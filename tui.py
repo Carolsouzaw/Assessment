@@ -18,17 +18,6 @@ def display_title():
     print(title)
     print(dashes)
 
-
-
-
-
-
-
-
-
-
-
-
 """Task 3"""
 
 def display_main_menu():
@@ -37,7 +26,13 @@ def display_main_menu():
     print("[B] Visualise Data")
     print("[X] Exit")
 
-
+"""Task 6"""
+def display_view_data_menu():
+    print("Please enter one of the following options:")
+    print("[A] All Reviews by Park")
+    print("[B] Number of Reviews by Park and Reviewer Location")
+    print("[C] Average Score per year by Park")
+    print("[D] Average Score per Park by Reviewer Location")
 
 
 
