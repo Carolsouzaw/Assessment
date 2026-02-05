@@ -148,3 +148,37 @@ def average_rating_by_month_for_park(data, park_name):
             results.append((m, 0))
 
     return results
+
+"""Task 13"""
+
+def average_score_per_park_by_location(data):
+    results = {}
+
+    for row in data:
+        park = row.get("Branch", "").strip()
+        location = row.get("Reviewer_Location", "").strip()
+        rating_str = row.get("Rating", "").strip()
+
+        try:
+            rating = int(rating_str)
+        except ValueError:
+            continue
+
+        if park not in results:
+            results[park] = {}
+
+        if location not in results[park]:
+            results[park][location] = {"total": 0, "count": 0}
+
+        results[park][location]["total"] += rating
+        results[park][location]["count"] += 1
+
+    averages = {}
+    for park in results:
+        averages[park] = {}
+        for location in results[park]:
+            total = results[park][location]["total"]
+            count = results[park][location]["count"]
+            averages[park][location] = round(total / count, 2)
+
+    return averages

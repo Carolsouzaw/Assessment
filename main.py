@@ -69,6 +69,15 @@ def main():
                 else:
                     print(f"The average rating for {park} in {year} is {avg}.")
 
+                """Task 13"""
+            elif sub_choice == "D":
+                averages = process.average_score_per_park_by_location(reviews)
+                for park in averages:
+                    print(f"\n{park}")
+                    print("-" * len(park))
+                    for location in averages[park]:
+                        print(f"{location}: {averages[park][location]}")
+
             """Task 10"""
         elif choice == "B":
             print("You have chosen option B")
@@ -96,6 +105,7 @@ def main():
                 month_data = process.average_rating_by_month_for_park(reviews, park)
 
                 visual.show_monthly_average_bar_chart(month_data, park)
+
 
         elif choice == "X":
             print("Exiting program...")
