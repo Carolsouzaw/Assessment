@@ -75,3 +75,76 @@ def count_reviews_per_park(data):
             counts[park] = 1
 
     return counts
+
+"""Task 11"""
+
+def top_10_locations_by_avg_rating_for_park(data, park_name):
+    park_name = park_name.strip().lower()
+
+    totals = {}
+    counts = {}
+
+    for row in data:
+        branch = row.get("Branch", "").strip().lower()
+        if branch != park_name:
+            continue
+
+        location = row.get("Reviewer_Location", "").strip()
+        rating_str = row.get("Rating", "").strip()
+
+        try:
+            rating = int(rating_str)
+        except ValueError:
+            continue
+
+        totals[location] = totals.get(location, 0) + rating
+        counts[location] = counts.get(location, 0) + 1
+
+    averages = []
+    for location in totals:
+        avg = totals[location] / counts[location]
+        averages.append((location, avg))
+
+    averages.sort(key=lambda x: x[1], reverse=True)
+    return averages[:10]
+
+"""Task 12"""
+
+def average_rating_by_month_for_park(data, park_name):
+    park_name = park_name.strip().lower()
+
+    totals = {}
+    counts = {}
+
+    for row in data:
+        branch = row.get("Branch", "").strip().lower()
+        if branch != park_name:
+            continue
+
+        year_month = row.get("Year_Month", "").strip()
+        rating_str = row.get("Rating", "").strip()
+
+        try:
+            rating = int(rating_str)
+        except ValueError:
+            continue
+
+        if "-" in year_month:
+            month = year_month.split("-")[1]
+        else:
+            continue
+
+        totals[month] = totals.get(month, 0) + rating
+        counts[month] = counts.get(month, 0) + 1
+
+    month_order = ["01","02","03","04","05","06","07","08","09","10","11","12"]
+
+    results = []
+    for m in month_order:
+        if m in totals:
+            avg = totals[m] / counts[m]
+            results.append((m, round(avg, 2)))
+        else:
+            results.append((m, 0))
+
+    return results

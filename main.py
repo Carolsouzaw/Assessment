@@ -11,7 +11,7 @@ Note:   any user input/output should be done in the module 'tui'
 
 import tui
 import process
-
+import visual
 
 def main():
     tui.display_title()
@@ -69,11 +69,33 @@ def main():
                 else:
                     print(f"The average rating for {park} in {year} is {avg}.")
 
+            """Task 10"""
         elif choice == "B":
             print("You have chosen option B")
             tui.display_visualise_menu()
             sub_choice = input().upper()
             print(f"You have chosen sub-option {sub_choice}")
+            if sub_choice == "A":
+                counts = process.count_reviews_per_park(reviews)
+                visual.show_reviews_pie_chart(counts)
+
+                """Task 11"""
+            elif sub_choice == "B":
+                park = tui.ask_park_name()
+                top10 = process.top_10_locations_by_avg_rating_for_park(reviews, park)
+
+                if len(top10) == 0:
+                    print("No data found for that park.")
+                else:
+                    visual.show_top_10_locations_bar_chart(top10, park)
+
+                """Task 12"""
+
+            elif sub_choice == "C":
+                park = tui.ask_park_name()
+                month_data = process.average_rating_by_month_for_park(reviews, park)
+
+                visual.show_monthly_average_bar_chart(month_data, park)
 
         elif choice == "X":
             print("Exiting program...")
