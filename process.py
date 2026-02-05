@@ -38,3 +38,40 @@ def count_reviews_by_park_and_location(data, park_name, location):
         ):
             count += 1
     return count
+def average_rating_by_park_and_year(data, park_name, year):
+    total = 0
+    count = 0
+
+    park_name = park_name.strip().lower()
+    year = year.strip()
+
+    for row in data:
+        branch = row.get("Branch", "").strip().lower()
+        year_month = row.get("Year_Month", "").strip()
+        rating_str = row.get("Rating", "").strip()
+
+        if branch == park_name and year_month.startswith(year):
+            try:
+                total += int(rating_str)
+                count += 1
+            except ValueError:
+                pass
+
+    if count == 0:
+        return None
+
+    return round(total / count, 2)
+
+"""Task 10"""
+def count_reviews_per_park(data):
+    counts = {}
+
+    for row in data:
+        park = row.get("Branch", "").strip()
+
+        if park in counts:
+            counts[park] += 1
+        else:
+            counts[park] = 1
+
+    return counts

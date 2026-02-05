@@ -54,6 +54,12 @@ def ask_location():
     print("Please enter the reviewer location:")
     return input().strip()
 
+"""Task 9"""
+
+def ask_year():
+    print("Please enter the year (e.g., 2019):")
+    return input().strip()
+
 
 
 

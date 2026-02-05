@@ -56,6 +56,19 @@ def main():
 
                 print(f"{park} has received {total} reviews from {location}.")
 
+                """Task 9"""
+
+            elif sub_choice == "C":
+                park = tui.ask_park_name()
+                year = tui.ask_year()
+
+                avg = process.average_rating_by_park_and_year(reviews, park, year)
+
+                if avg is None:
+                    print("No reviews found for that park in that year.")
+                else:
+                    print(f"The average rating for {park} in {year} is {avg}.")
+
         elif choice == "B":
             print("You have chosen option B")
             tui.display_visualise_menu()
